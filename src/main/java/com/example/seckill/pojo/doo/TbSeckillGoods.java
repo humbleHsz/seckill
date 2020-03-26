@@ -8,19 +8,19 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.math.BigInteger;
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_seckill_goods")
 @Entity
-public class TbSeckillGoods {
+public class TbSeckillGoods implements Serializable {
 
   @Id
-  private BigInteger id;
-  private BigInteger goodsId;
-  private BigInteger itemId;
+  private Long id;
+  private Long goodsId;
+  private Long itemId;
   private String title;
   private String smallPic;
   private double price;

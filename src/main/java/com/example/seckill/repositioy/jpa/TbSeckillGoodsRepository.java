@@ -14,4 +14,7 @@ public interface TbSeckillGoodsRepository extends JpaRepository<TbSeckillGoods,I
     @Query(value = "SELECT * FROM tb_seckill_goods good " +
             "WHERE `status`=1 and start_time BETWEEN ?1 and ?2 and stock_count>0",nativeQuery = true)
      List<TbSeckillGoods> findGoodsToRedis(String startTime,String endTime);
+
+    TbSeckillGoods findById(Long id);
+
 }

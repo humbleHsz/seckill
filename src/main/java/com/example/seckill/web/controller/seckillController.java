@@ -1,13 +1,11 @@
 package com.example.seckill.web.controller;
 
-import com.alibaba.fastjson.JSONObject;
+import com.example.seckill.common.Utils.Result;
+import com.example.seckill.common.Utils.ReturnDTO;
 import com.example.seckill.pojo.doo.TbSeckillGoods;
 import com.example.seckill.service.SeckillGoodsService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -39,6 +37,20 @@ public class seckillController {
     @RequestMapping("/seckillGoods/findAll")
     public List<TbSeckillGoods> findAll(){
         return seckillGoodsService.finaAll();
+    }
+
+
+    @ResponseBody
+    @GetMapping("/seckillGoods/findOne/{id}")
+    public TbSeckillGoods findOne(@PathVariable("id") Long id){
+        return seckillGoodsService.findOne(id);
+    }
+
+    @ResponseBody
+    @GetMapping("/seckillGoods/saveOrder/{id}")
+    public Result saveOrder(@PathVariable("id") Long id){
+        String userId="hsz";
+        return seckillGoodsService.saveOrder(id,userId);
     }
 
 
